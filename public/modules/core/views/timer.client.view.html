@@ -1,5 +1,47 @@
 <section data-ng-controller="TutorialController">
-    <div  data-timer class="ccounter">
+
+    <style type="text/css">
+    .count-down {
+        margin: 40px 0 85px 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        height: 240px;
+        height: auto;
+    }
+    .count-down li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 28px;
+        display: inline-block;
+        min-height: 250px;
+    }
+    .count-down li div {
+        margin: 0 !important;
+        padding: 0;
+    }
+    .count-down li input {
+        font-family: 'Roboto', sans-serif !important;
+        font-size: 88px!important;
+        width: 154px!important;
+        height: 98px!important;
+        margin: 70px 0 0 -210px !important;
+        font-weight: normal!important;
+    }
+    #days-title,
+    #hours-title,
+    #mins-title,
+    #secs-title {
+        display: block;
+        text-transform: uppercase;
+        margin-top: -94px;
+        font-size: 24px;
+        position: relative;
+        z-index: 9 !important;
+    }
+    </style>
+    <div data-timer class="ccnter">
 
         <input class="knob days" data-readOnly="true" data-width="150" data-displayPrevious=true data-fgColor="#66EE66" data-skin="tron" data-thickness=".2" data-min="0" data-max="365" value="75">
 
@@ -9,6 +51,35 @@
 
         <input class="knob second" data-readOnly="true" data-width="150" data-min="0" data-max="60" data-displayPrevious=true data-fgColor="#00CED1" data-skin="tron" data-thickness=".2" value="75">
 
+    </div>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="span12">
+
+                <div class="count-down-wrapper fade-down">
+                    <ul class="row ccounter">
+                        <li class="col-md-3 col-sm-6">
+                            <input class="knob days" data-readonly=true data-min="0" data-max="365" data-width="260" data-height="260" data-thickness="0.07" data-fgcolor="#34aadc" data-bgColor="#e1e2e6" data-angleOffset="180">
+                            <span id="days-title">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp days</span>
+                        </li>
+                        <li class="col-md-3 col-sm-6">
+                            <input class="knob hour" data-readonly=true data-min="0" data-max="24" data-width="260" data-height="260" data-thickness="0.07" data-fgcolor="#4cd964" data-bgColor="#e1e2e6" data-angleOffset="180">
+                            <span id="hours-title">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsphours</span>
+                        </li>
+                        <li class="col-md-3 col-sm-6">
+                            <input class="knob minute" data-readonly=true data-min="0" data-max="60" data-width="260" data-height="260" data-thickness="0.07" data-fgcolor="#ff9500" data-bgColor="#e1e2e6" data-angleOffset="180">
+                            <span id="mins-title">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspminutes</span>
+                        </li>
+                        <li class="col-md-3 col-sm-6">
+                            <input class="knob second" data-readonly=true data-min="0" data-max="60" data-width="260" data-height="260" data-thickness="0.07" data-fgcolor="#ff3b30" data-bgColor="#e1e2e6" data-angleOffset="180">
+                            <span id="secs-title">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspseconds</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 

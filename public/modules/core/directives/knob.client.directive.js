@@ -6,11 +6,11 @@ angular.module('core').directive('timer', ['$timeout', function($timeout) {
         restrict: 'A',
         link: function(scope, element, attrs) {
 
-             
 
 
-    	 var jqueryElm = $(".knob");
-            $(jqueryElm ).knob({
+
+            var jqueryElm = $(".knob");
+            $(jqueryElm).knob({
                 /*change : function (value) {
                     //console.log("change : " + value);
                 },
@@ -20,7 +20,7 @@ angular.module('core').directive('timer', ['$timeout', function($timeout) {
                 cancel : function () {
                     console.log("cancel : " + this.value);
                 },*/
-               draw: function() {
+                draw: function() {
 
                     // "tron" case
                     if (this.$.data('skin') == 'tron') {
@@ -64,40 +64,49 @@ angular.module('core').directive('timer', ['$timeout', function($timeout) {
                     }
                 }
             });
-      /*var v, up=0,down=0,i=0
-                ,$idir = $("div.idir")
-                ,$ival = $("div.ival")
-                ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
-                ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
+            /*var v, up=0,down=0,i=0
+                      ,$idir = $("div.idir")
+                      ,$ival = $("div.ival")
+                      ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
+                      ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
 
-                var jqueryElm2 = $("input.infinite");
-            $(jqueryElm2).knob(
-                                {
-                                min : 0
-                                , max : 20
-                                , stopper : false
-                                , change : function () {
-                                                if(v > this.cv){
-                                                    if(up){
-                                                        decr();
-                                                        up=0;
-                                                    }else{up=1;down=0;}
-                                                } else {
-                                                    if(v < this.cv){
-                                                        if(down){
-                                                            incr();
-                                                            down=0;
-                                                        }else{down=1;up=0;}
-                                                    }
-                                                }
-                                                v = this.cv;
-                                            }
-                                });*/
+                      var jqueryElm2 = $("input.infinite");
+                  $(jqueryElm2).knob(
+                                      {
+                                      min : 0
+                                      , max : 20
+                                      , stopper : false
+                                      , change : function () {
+                                                      if(v > this.cv){
+                                                          if(up){
+                                                              decr();
+                                                              up=0;
+                                                          }else{up=1;down=0;}
+                                                      } else {
+                                                          if(v < this.cv){
+                                                              if(down){
+                                                                  incr();
+                                                                  down=0;
+                                                              }else{down=1;up=0;}
+                                                          }
+                                                      }
+                                                      v = this.cv;
+                                                  }
+                                      });*/
 
- var jqueryElm3 = $(".ccounter");
-          console.log("elemnis is 123 ");
-            $(jqueryElm3).ccountdown(2015,2,25, '18:00');
+            var jqueryElm3 = $(".ccounter");
+            console.log("elemnis is 123 ");
+            $(jqueryElm3).ccountdown(2015, 2, 25, '18:00');
+
+            var jqueryElm3 = $(".ccnter");
+            console.log("elemnis is 123 ");
+            $(jqueryElm3).ccountdown(2015, 5, 25, '18:00');
+
+
+
 
         }
     };
+
+
 }]);

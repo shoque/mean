@@ -58,6 +58,7 @@ angular.module('core').service('Menus', [
 		// Add new menu object by menu id
 		this.addMenu = function(menuId, isPublic, roles) {
 			// Create the new menu
+			console.log("Article menu created");
 			this.menus[menuId] = {
 				isPublic: isPublic || false,
 				roles: roles || this.defaultRoles,

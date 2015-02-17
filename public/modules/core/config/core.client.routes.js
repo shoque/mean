@@ -11,6 +11,19 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		state('home', {
 			url: '/',
 			templateUrl: 'modules/core/views/home.client.view.html'
+		}).state('tutorial', {
+			url: '/tutorial',
+			templateUrl: 'modules/core/views/tutorial.client.view.html'
+		}).
+		state('drag', {
+			url: '/drag',
+			templateUrl: 'modules/core/views/drag.client.view.html'
+		}).state('timer', {
+			url: '/timer',
+			templateUrl: 'modules/core/views/timer.client.view.html'
 		});
+
+
+
 	}
 ]);

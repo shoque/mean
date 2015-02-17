@@ -21,5 +21,6 @@ angular.module('articles').config(['$stateProvider',
 			url: '/articles/:articleId/edit',
 			templateUrl: 'modules/articles/views/edit-article.client.view.html'
 		});
+
 	}
 ]);

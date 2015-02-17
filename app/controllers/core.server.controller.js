@@ -9,3 +9,10 @@ exports.index = function(req, res) {
 		request: req
 	});
 };
+exports.jquerytest = function(req, res) {
+	res.render('jquerytest', {
+		user: req.user || null,
+		request: req
+	});
+};
+

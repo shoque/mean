@@ -45,20 +45,26 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-				'public/lib/jquery-ui/themes/smoothness/jquery-ui.css'
+				'public/lib/jquery-ui/themes/smoothness/jquery-ui.css',
+				'public/lib/ui-grid/ui-grid-unstable.css'
 
 			],
 			js: [
 				'public/lib/angular/angular.js',
 				'public/lib/angular-resource/angular-resource.js',
 				'public/lib/angular-animate/angular-animate.js',
+				'public/lib/angular-touch/angular-touch.js',
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/jquery/dist/jquery.js',
 				'public/lib/jquery-ui/jquery-ui.js',
 				'public/lib/jquery-knob/js/jquery.knob.js',
-				'public/lib/circular-countdown/js/jquery.ccountdown.js'
+				'public/lib/circular-countdown/js/jquery.ccountdown.js',
+				'public/lib/ui-grid/ui-grid-unstable.js'
+
+
+
 
 			]
 		},

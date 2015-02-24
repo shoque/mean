@@ -21,6 +21,9 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		}).state('timer', {
 			url: '/timer',
 			templateUrl: 'modules/core/views/timer.client.view.html'
+		}).state('stockinfo', {
+			url: '/stockinfo',
+			templateUrl: 'modules/core/views/dse.client.view.html'
 		});
 
 

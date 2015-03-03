@@ -46,7 +46,7 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
 				'public/lib/jquery-ui/themes/smoothness/jquery-ui.css',
-				'public/lib/ui-grid/ui-grid-unstable.css'
+				'public/lib/angular-ui-grid/ui-grid.css'
 
 			],
 			js: [
@@ -61,7 +61,7 @@ module.exports = {
 				'public/lib/jquery-ui/jquery-ui.js',
 				'public/lib/jquery-knob/js/jquery.knob.js',
 				'public/lib/circular-countdown/js/jquery.ccountdown.js',
-				'public/lib/ui-grid/ui-grid-unstable.js'
+				'public/lib/angular-ui-grid/ui-grid.js'
 
 
 

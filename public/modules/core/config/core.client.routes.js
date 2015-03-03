@@ -24,6 +24,9 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		}).state('stockinfo', {
 			url: '/stockinfo',
 			templateUrl: 'modules/core/views/dse.client.view.html'
+		}).state('gridinfo', {
+			url: '/gridinfo',
+			templateUrl: 'modules/core/views/grid.client.view.html'
 		});
 
 

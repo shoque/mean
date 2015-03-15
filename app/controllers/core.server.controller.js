@@ -24,14 +24,24 @@ exports.dseprocess = function(req, res) {
     request.get(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             var csv = body;
-            // console.log(csv);
-            var str = csv.split("\n");
+            //console.log(csv);
+           var str = csv.split("\n");
+         //   for (var i=0; i<str.length-200; i++)
+        //    {
+               // console.log (i+ "----" +str[i] );
+         //   }
             //console.log(str);
-            // var k1 = str.indexOf("A Group (Equity)");
+             //var k1 = str.indexOf("A Group (Equity)");
             var k2 = str.indexOf("A Group (Equity)");
             var k3 = str.indexOf("                                                      ------    ---------    ---------");
-            console.log(" k3= " + k3);
+            console.log(" k2  = " + str[93].length);
 
+            //for (var i = 0;i<str[93].length;i++){
+              //  console.log(" char" +i+" = " + str[93][i]);
+
+
+           // }
+//console.log(str[93].charCodeAt(16));
             var stockinfo = [];
             var rowinfo = [];
 
@@ -63,7 +73,7 @@ exports.dseprocess = function(req, res) {
                     check: check
                 });
 
-                //console.log(stockinfo);
+               // console.log(stockinfo);
 
             }
 //random number between -10% to 10% 

@@ -13,5 +13,16 @@ angular.module('core').controller('DseController', ['$http', '$scope', 'Authenti
 
             console.log(response.message);
         });
+
+        $http.get('/getdsedailydata').success(function(response) {
+
+            $scope.daily = response;
+            //console.
+
+        }).error(function(response) {
+            $scope.error = response.message;
+
+            console.log(response.message);
+        });
     }
 ]);

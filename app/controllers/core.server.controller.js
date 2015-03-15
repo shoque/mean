@@ -16,6 +16,9 @@ exports.jquerytest = function(req, res) {
     });
 };
 
+
+
+
 exports.dseprocess = function(req, res) {
     var request = require('request');
     var url = "http://www.dsebd.org/mst.txt";
@@ -99,6 +102,54 @@ exports.dseprocess = function(req, res) {
 
        }
             //console.log(stockinfo);
+            res.json(stockinfo);
+
+
+            // Continue with your processing here.
+        }
+    });
+    //res.send("hello World");
+
+};
+
+
+
+
+
+
+exports.dsedaily = function(req, res) {
+    var request = require('request');
+    var url = "http://www.dsebd.org/datafile/quotes.txt";
+
+
+    request.get(url, function(error, response, body) {
+
+        if (!error && response.statusCode == 200) {
+            var csv = body;
+         //   console.log(csv);
+var str = csv.split("\n");
+ var stockinfo = [];
+            for (var i=4; i<str.length-2; i++)
+
+            {
+                
+               // console.log (str[i].length);
+              var split = str[i].match(/\S+/g);
+            //  console.log(split);
+                      stockinfo.push({
+                    sym: split[0],
+                    price: Number(split[1])
+                 
+                });
+             //   var str2 = str[i].split(" ")
+            }
+           
+         //console.log("last line : " +str[4]);
+
+
+            //console.log(stockinfo);
+
+
             res.json(stockinfo);
 
 

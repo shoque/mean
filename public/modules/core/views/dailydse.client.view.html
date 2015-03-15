@@ -1,0 +1,18 @@
+<section data-ng-controller="DseController">
+    <style type="text/css">
+    .grid {
+        width: 20px;
+        height: 50px;
+    }
+    </style>
+    <input type="search" ng-model="q" placeholder="filter company" />
+    <table class="table table-bordered">
+        <tr ng-repeat="x in daily | filter:q | orderBy:'price'">
+            <td>
+                <h1>company = {{x.sym}}</h1>
+                <h2>price = {{x.price}}</h2>
+            </td>
+        </tr>
+    </table>
+    </ul>
+</section>

@@ -1,0 +1,26 @@
+<section data-ng-controller="DseController">
+    <style type="text/css">
+    .grid {
+        width: 20px;
+        height: 50px;
+    }
+    </style>
+    <div class="text-center">
+    <h1>Latest price update of DSE Stocks</h1>
+    <hr/>
+    <p>Enter Company Name :
+        <input type="search" ng-model="q" placeholder="filter company" />
+    </p>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>Company Name</th>
+            <th>Last Price </th>
+        </tr>
+        <tr ng-repeat="x in daily | filter:q | orderBy:'price'">
+            <td> {{x.sym}}</td>
+            <td>{{x.price  | currency:"Tk. "}}</td>
+        </tr>
+    </table>
+    </ul>
+</section>

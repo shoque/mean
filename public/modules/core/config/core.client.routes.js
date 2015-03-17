@@ -25,8 +25,8 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 			url: '/stockinfo',
 			templateUrl: 'modules/core/views/dse.client.view.html'
 		}).state('dailystockinfo', {
-			url: '/dailystockinfo',
-			templateUrl: 'modules/core/views/dailydse.client.view.html'
+			url: '/dse-stock',
+			templateUrl: 'modules/core/views/dse-stock.client.view.html'
 		});
 
 

@@ -6,25 +6,34 @@
     }
     </style>
     <div>
-        <h1>Latest price update of DSE Stocks</h1>
-         <h1>My Stocks</h1>
+        <h1>Manage your Stocks : </h1>
         <hr/>
         <div class="col-xs-8 form-group">
-            <label for="inputCompany" class="col-xs-4 control-label">Enter Company Name :</label>
+            <label for="inputCompany" class="col-xs-4 control-label">Select Company Name :</label>
             <div class="col-xs-8">
-                <input type="search" id="inputCompany" class="form-control" ng-model="q" placeholder="filter company" />
+                <select class="form-control" ng-model="myItem" ng-options="stock.sym for stock in stocks">
+                    <option value="">Select Company</option>
+                    <!--<option ng-repeat="x in stocks | orderBy:'sym'">{{x.sym}}</option> -->
+
+                </select>
             </div>
         </div>
-        
+       
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped" ng-show="myItem">
         <tr>
             <th>Company Name</th>
             <th>Last Price </th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Buy</th>
         </tr>
-        <tr ng-repeat="x in stocks | filter:q | orderBy:'price'">
-            <td> {{x.sym}}</td>
-            <td>{{x.price | currency:"Tk. "}}</td>
+        <tr >
+            <td>{{myItem.sym}}</td>
+            <td ng-model="prc" >{{myItem.price}}</td>
+            <td><input type="number" class="form-control" ng-model="qty" ng-model-options="{ getterSetter: true }" placeholder="Enter buy volume" /></td>
+            <td >{{myItem.price*qty}}</td>
+            <td><button type="button" class="btn btn-success">Buy</button></td>
         </tr>
     </table>
     </ul>

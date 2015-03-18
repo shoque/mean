@@ -8,6 +8,10 @@ angular.module('core').controller('MystocksController', ['$http', '$scope', 'Aut
         $http.get('/getmystocks').success(function(response) {
 
             $scope.stocks = response;
+           
+            
+            $scope.qty = 0;
+
             //console.
 
         }).error(function(response) {

@@ -14,27 +14,35 @@
                 <select class="form-control" ng-model="myItem" ng-options="stock.sym for stock in stocks">
                     <option value="">Select Company</option>
                     <!--<option ng-repeat="x in stocks | orderBy:'sym'">{{x.sym}}</option> -->
-
                 </select>
             </div>
         </div>
-       
     </div>
-    <table class="table table-striped" ng-show="myItem">
-        <tr>
-            <th>Company Name</th>
-            <th>Last Price </th>
-            <th>Quantity</th>
-            <th>Total Price</th>
-            <th>Buy</th>
-        </tr>
-        <tr >
-            <td>{{myItem.sym}}</td>
-            <td ng-model="prc" >{{myItem.price}}</td>
-            <td><input type="number" class="form-control" ng-model="qty" ng-model-options="{ getterSetter: true }" placeholder="Enter buy volume" /></td>
-            <td >{{myItem.price*qty}}</td>
-            <td><button type="button" class="btn btn-success">Buy</button></td>
-        </tr>
-    </table>
-    </ul>
+    <div>
+        <form data-ng-submit="buy()">
+            <table class="table table-striped" ng-show="myItem">
+                <tr>
+                    <th>Company Name</th>
+                    <th>Last Price </th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Buy</th>
+                </tr>
+                <tr>
+                    <td>{{myItem.sym}}</td>
+                    <td>{{myItem.price| currency:"Tk. "}}</td>
+                    <td>
+                        <input type="number" class="form-control" ng-model="qty" />
+                    </td>
+                    <td>{{myItem.price*qty| currency:"Tk. "}}</td>
+                    <td>
+                        <button type="submit" class="btn btn-success">Buy</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="col-xs-4" ng-show="!myItem&&msg">
+        <p class="alert alert-success">{{msg}}</p>
+    </div>
 </section>

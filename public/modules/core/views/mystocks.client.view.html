@@ -1,4 +1,4 @@
-<section data-ng-controller="DseStockController">
+<section data-ng-controller="MystocksController">
     <style type="text/css">
     .grid {
         width: 20px;
@@ -7,6 +7,7 @@
     </style>
     <div>
         <h1>Latest price update of DSE Stocks</h1>
+         <h1>My Stocks</h1>
         <hr/>
         <div class="col-xs-8 form-group">
             <label for="inputCompany" class="col-xs-4 control-label">Enter Company Name :</label>
@@ -14,14 +15,14 @@
                 <input type="search" id="inputCompany" class="form-control" ng-model="q" placeholder="filter company" />
             </div>
         </div>
-        <div class="col-xs-4 text-right"><a ng-href="/{{'#!/mystocks'}}" >Go to My Stocks</a></div>
+        
     </div>
     <table class="table table-striped">
         <tr>
             <th>Company Name</th>
             <th>Last Price </th>
         </tr>
-        <tr ng-repeat="x in daily | filter:q | orderBy:'price'">
+        <tr ng-repeat="x in stocks | filter:q | orderBy:'price'">
             <td> {{x.sym}}</td>
             <td>{{x.price | currency:"Tk. "}}</td>
         </tr>

@@ -1,11 +1,13 @@
 'use strict';
 
 
-angular.module('core').controller('DseController', ['$http', '$scope', 'Authentication',
+angular.module('core').controller('DseStockController', ['$http', '$scope', 'Authentication',
     function($http, $scope, Authentication) {
-        $http.get('/getdseData').success(function(response) {
+        
 
-            $scope.names = response;
+        $http.get('/getdsedailydata').success(function(response) {
+
+            $scope.daily = response;
             //console.
 
         }).error(function(response) {
@@ -13,7 +15,6 @@ angular.module('core').controller('DseController', ['$http', '$scope', 'Authenti
 
             console.log(response.message);
         });
-
         
     }
 ]);

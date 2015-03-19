@@ -3,6 +3,8 @@
 
 angular.module('core').controller('MystocksController', ['$http', '$scope', 'Authentication','Articles',
     function($http, $scope, Authentication, Articles) {
+         $scope.authentication=Authentication;
+         
         $scope.find = function() {
             $scope.articles = Articles.query();
         };
@@ -20,7 +22,7 @@ angular.module('core').controller('MystocksController', ['$http', '$scope', 'Aut
             console.log($scope.qty);
             console.log($scope.qty * $scope.myItem.price);
             $scope.myItem = undefined;
-            
+            $scope.qty=0;
 
             $http.post('/buyItem', item).success(function(response) {
                 $scope.success = response.message;   

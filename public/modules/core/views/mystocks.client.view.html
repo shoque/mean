@@ -48,7 +48,7 @@
     </div>
     <div class="container">
         <div>
-            <h1 class="text-center">Portfolio </h1>
+            <h1 class="text-center">Portfolio of  <i>{{authentication.user.displayName}}</i></h1>
             <table class="table table-striped">
                 <tr>
                     <th>Purchase Date</th>
@@ -58,14 +58,14 @@
                     <th>Total Buy Price</th>
                     <th>Current Price</th>
                 </tr>
-                <tr ng-repeat="article in articles">
-                    <td>{{article.created | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+                <tr ng-repeat="article in articles" data-ng-show="authentication.user._id == article.user._id">
+                    <td>{{article.created | date:"MM/dd/yyyy 'at' h:mm:ss a"}}</td>
                     <td>{{article.symbol}}</td>
                     <td>{{article.quantity}}</td>
                     <td>{{article.price | currency:"Tk. "}}</td>
                     <td>{{article.price*article.quantity | currency:"Tk. "}}</td>
-                    <td>
-                        0
+                    <td >
+                        {{article.price| currency:"Tk. "}}
                     </td>
                 </tr>
             </table>

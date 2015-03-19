@@ -3,6 +3,11 @@
 /**
  * Module dependencies.
  */
+var mongoose = require('mongoose'),
+    errorHandler = require('./errors.server.controller'),
+    Article = mongoose.model('Article');
+
+
 exports.index = function(req, res) {
     res.render('index', {
         user: req.user || null,
@@ -128,8 +133,8 @@ exports.dsedaily = function(req, res) {
             var csv = body;
             var str = csv.split('\n');
             var stockinfo = [];
-            for (var i = 4; i < str.length - 2; i++){
-                var split = str[i].match(/\S+/g);                
+            for (var i = 4; i < str.length - 2; i++) {
+                var split = str[i].match(/\S+/g);
                 stockinfo.push({
                     sym: split[0],
                     price: Number(split[1])
@@ -141,7 +146,7 @@ exports.dsedaily = function(req, res) {
             // Continue with your processing here.
         }
     });
-    
+
 };
 
 
@@ -156,8 +161,8 @@ exports.mystocks = function(req, res) {
             var csv = body;
             var str = csv.split('\n');
             var stockinfo = [];
-            for (var i = 4; i < str.length - 2; i++){
-                var split = str[i].match(/\S+/g);                
+            for (var i = 4; i < str.length - 2; i++) {
+                var split = str[i].match(/\S+/g);
                 stockinfo.push({
                     sym: split[0],
                     price: Number(split[1])
@@ -169,5 +174,25 @@ exports.mystocks = function(req, res) {
             // Continue with your processing here.
         }
     });
-    
+
+};
+exports.buyItem = function(req, res) {
+    var selectedItem = new Article(req.body);
+    selectedItem.user = req.user;
+
+    console.log(req.user.displayName);
+    console.log(selectedItem);
+
+    selectedItem.save(function(err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(selectedItem);
+            console.log(selectedItem.symbol+' added');
+        }
+    });
+
+
 };

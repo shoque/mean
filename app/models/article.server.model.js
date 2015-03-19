@@ -14,16 +14,23 @@ var ArticleSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	title: {
+	symbol: {
 		type: String,
 		default: '',
 		trim: true,
-		required: 'Title cannot be blank'
+		required: 'Symbol cannot be blank'
 	},
-	content: {
-		type: String,
-		default: '',
-		trim: true
+	price: {
+		type: Number,
+		default: 0,
+		trim: true,
+		required: 'Price cannot be blank'
+	},
+	quantity: {
+		type: Number,
+		default: 0,
+		trim: true,
+		required: 'Quantity cannot be blank'
 	},
 	user: {
 		type: Schema.ObjectId,

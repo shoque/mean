@@ -9,6 +9,7 @@ module.exports = function(app) {
     app.route('/getdseData').get(core.dseprocess);
     app.route('/getdsedailyData').get(core.dsedaily);
     app.route('/getmystocks').get(users.requiresLogin, core.mystocks);
+    app.route('/buyItem').post(core.buyItem);
 
 
 };

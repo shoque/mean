@@ -1,11 +1,11 @@
-<section data-ng-controller="MystocksController">
+<section data-ng-controller="MystocksController" data-ng-init="find()">
     <style type="text/css">
     .grid {
         width: 20px;
         height: 50px;
     }
     </style>
-    <div>
+    <div class="container">
         <h1>Manage your Stocks : </h1>
         <hr/>
         <div class="col-xs-8 form-group">
@@ -17,8 +17,11 @@
                 </select>
             </div>
         </div>
+        <div class="col-xs-4" ng-show="!myItem && msg">
+            <p class="alert alert-success">{{msg}}</p>
+        </div>
     </div>
-    <div>
+    <div class="container">
         <form data-ng-submit="buy()">
             <table class="table table-striped" ng-show="myItem">
                 <tr>
@@ -40,9 +43,32 @@
                     </td>
                 </tr>
             </table>
+            <hr/>
         </form>
     </div>
-    <div class="col-xs-4" ng-show="!myItem&&msg">
-        <p class="alert alert-success">{{msg}}</p>
+    <div class="container">
+        <div>
+            <h1 class="text-center">Portfolio </h1>
+            <table class="table table-striped">
+                <tr>
+                    <th>Purchase Date</th>
+                    <th>Company Name</th>
+                    <th>Quantity</th>
+                    <th>Unit Price </th>
+                    <th>Total Buy Price</th>
+                    <th>Current Price</th>
+                </tr>
+                <tr ng-repeat="article in articles">
+                    <td>{{article.created | date:"MM/dd/yyyy 'at' h:mma"}}</td>
+                    <td>{{article.symbol}}</td>
+                    <td>{{article.quantity}}</td>
+                    <td>{{article.price | currency:"Tk. "}}</td>
+                    <td>{{article.price*article.quantity | currency:"Tk. "}}</td>
+                    <td>
+                        0
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </section>

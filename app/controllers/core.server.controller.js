@@ -28,23 +28,23 @@ exports.dseprocess = function(req, res) {
         if (!error && response.statusCode == 200) {
             var csv = body;
             //console.log(csv);
-           var str = csv.split("\n");
-         //   for (var i=0; i<str.length-200; i++)
-        //    {
-               // console.log (i+ "----" +str[i] );
-         //   }
+            var str = csv.split("\n");
+            //   for (var i=0; i<str.length-200; i++)
+            //    {
+            // console.log (i+ "----" +str[i] );
+            //   }
             //console.log(str);
-             //var k1 = str.indexOf("A Group (Equity)");
+            //var k1 = str.indexOf("A Group (Equity)");
             var k2 = str.indexOf("A Group (Equity)");
             var k3 = str.indexOf("                                                      ------    ---------    ---------");
             console.log(" k2  = " + str[93].length);
 
             //for (var i = 0;i<str[93].length;i++){
-              //  console.log(" char" +i+" = " + str[93][i]);
+            //  console.log(" char" +i+" = " + str[93][i]);
 
 
-           // }
-//console.log(str[93].charCodeAt(16));
+            // }
+            //console.log(str[93].charCodeAt(16));
             var stockinfo = [];
             var rowinfo = [];
 
@@ -52,10 +52,10 @@ exports.dseprocess = function(req, res) {
 
                 var split = str[i].match(/\S+/g);
                 for (var k = 0; k < split.length; k++) {
-                       //console.log(split[k]);
+                    //console.log(split[k]);
 
- 
-                   
+
+
                 }
                 var check = true;
                 if (split[5] < 0) {
@@ -76,31 +76,31 @@ exports.dseprocess = function(req, res) {
                     check: check
                 });
 
-               // console.log(stockinfo);
+                // console.log(stockinfo);
 
             }
-//random number between -10% to 10% 
-      
-       console.log(stockinfo.length);
-       for(var i = 0 ; i<stockinfo.length;i++){
-         var rand = parseFloat(((Math.random()-0.5)/10)) ;
-           console.log("rand = " +rand);
-            var temp =  parseFloat(stockinfo[i].close) ;
-            console.log("temp = "+temp);
-            stockinfo[i].close = temp + (temp * rand);
-             console.log("close = "+ stockinfo[i].close);
-            var change = temp - stockinfo[i].close;
-            stockinfo[i].change = change;
+            //random number between -10% to 10% 
 
-            console.log("change = " +change );
-            var check = true;
-            if (change < 0) {
+            console.log(stockinfo.length);
+            for (var i = 0; i < stockinfo.length; i++) {
+                var rand = parseFloat(((Math.random() - 0.5) / 10));
+                console.log("rand = " + rand);
+                var temp = parseFloat(stockinfo[i].close);
+                console.log("temp = " + temp);
+                stockinfo[i].close = temp + (temp * rand);
+                console.log("close = " + stockinfo[i].close);
+                var change = temp - stockinfo[i].close;
+                stockinfo[i].change = change;
+
+                console.log("change = " + change);
+                var check = true;
+                if (change < 0) {
                     check = false;
                 } else {
                     check = true;
                 }
 
-       }
+            }
             //console.log(stockinfo);
             res.json(stockinfo);
 
@@ -126,25 +126,25 @@ exports.dsedaily = function(req, res) {
 
         if (!error && response.statusCode == 200) {
             var csv = body;
-         //   console.log(csv);
-var str = csv.split("\n");
- var stockinfo = [];
-            for (var i=4; i<str.length-2; i++)
+            //   console.log(csv);
+            var str = csv.split("\n");
+            var stockinfo = [];
+            for (var i = 4; i < str.length - 2; i++)
 
             {
-                
-               // console.log (str[i].length);
-              var split = str[i].match(/\S+/g);
-            //  console.log(split);
-                      stockinfo.push({
+
+                // console.log (str[i].length);
+                var split = str[i].match(/\S+/g);
+                //  console.log(split);
+                stockinfo.push({
                     sym: split[0],
                     price: Number(split[1])
-                 
+
                 });
-             //   var str2 = str[i].split(" ")
+                //   var str2 = str[i].split(" ")
             }
-           
-         //console.log("last line : " +str[4]);
+
+            //console.log("last line : " +str[4]);
 
 
             //console.log(stockinfo);
@@ -159,3 +159,7 @@ var str = csv.split("\n");
     //res.send("hello World");
 
 };
+
+
+
+

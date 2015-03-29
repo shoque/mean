@@ -27,8 +27,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		}).state('dailystockinfo', {
 			url: '/dailystockinfo',
 			templateUrl: 'modules/core/views/dailydse.client.view.html'
+		}).state('userprofle', {
+			url: '/userprofle',
+			templateUrl: 'modules/core/views/userprofle.client.view.html'
 		});
-
 
 
 	}

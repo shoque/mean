@@ -1,0 +1,68 @@
+<section data-ng-controller="DseController">
+    <style type="text/css">
+    .grid {
+        width: 20px;
+        height: 50px;
+    }
+    </style>
+    <div style="margin-top: 50px">
+        <h1><u>Techdojo Securities Ltd.</u></h1>
+        <h6>House # 03 [1st Floor], Road # 07, Sector # 04, Uttara, Dhaka</h6>
+        <h5><b>Account Name: John Doe</b></h5>
+        <h5><b>Account Number: E260</b></h5>
+        <div class="row container">
+            <div class="dropdown" style="text-align: center; margin-bottom: 50px">
+            <div>
+                <select id= "company">
+                    <option selected="selected">Select Company</option>
+                    <option data-ng-repeat="x in daily">{{x.sym}}</option>
+                </select>
+                <h5 style="display: inline; margin-left: 50px"><b>Current Price: {{company.price}}
+                
+                </b></h5>
+                </div>
+                 <div>
+                
+                </div>
+            </div>
+            <table class="table" style="margin-bottom: 50px">
+                <thead>
+                    <tr>
+                        <th>Instrument</th>
+                        <th>Quantity</th>
+                        <th>Purchase Price</th>
+                        <th>Current Price</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>john@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>Mary</td>
+                        <td>Moe</td>
+                        <td>mary@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td>Dooley</td>
+                        <td>july@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+        <input type="search" ng-model="q" placeholder="filter company" />
+        <table class="table table-bordered">
+            <tr ng-repeat="x in daily | filter:q | orderBy:'price'">
+                <td>
+                    <h1>company = {{x.sym}}</h1>
+                    <h2>price = {{x.price}}</h2>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>

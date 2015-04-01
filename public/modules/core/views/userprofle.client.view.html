@@ -12,57 +12,65 @@
         <h5><b>Account Number: E260</b></h5>
         <div class="row container">
             <div class="dropdown" style="text-align: center; margin-bottom: 50px">
-            <div>
-                <select id= "company">
-                    <option selected="selected">Select Company</option>
-                    <option data-ng-repeat="x in daily">{{x.sym}}</option>
-                </select>
-                <h5 style="display: inline; margin-left: 50px"><b>Current Price: {{company.price}}
-                
-                </b></h5>
-                </div>
-                 <div>
-                
+                <div>
+                    <select ng-model="companyname" ng-options="x.sym for x in daily">
+                        <option value="">Select Company</option>
+                        <!--<option ng-repeat="x in stocks | orderBy:'sym'">{{x.sym}}</option> -->
+                    </select>
+                    <h5 style="display: inline; margin-left: 50px">
+                <b>Current Price: {{companyname.price}}</b>
+                </h5>
                 </div>
             </div>
-            <table class="table" style="margin-bottom: 50px">
-                <thead>
-                    <tr>
-                        <th>Instrument</th>
-                        <th>Quantity</th>
-                        <th>Purchase Price</th>
-                        <th>Current Price</th>
-                        <th>Total Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
-                    </tr>
-                </tbody>
-            </table>
-            <hr>
+            <form class="form-inline" style="text-align: center; margin-bottom: 50px">
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Quantity: </label>
+                    <input type="number" class="form-control input-sm" id="exampleInputEmail2" placeholder="0-5000" ng-model="quantity" min="0" max="5000" required>
+                </div>
+                <button type="submit" class="btn btn-success btn-sm" style="margin-left: -7px" data-ng-click="buy()">Buy</button>
+            </form>
         </div>
-        <input type="search" ng-model="q" placeholder="filter company" />
-        <table class="table table-bordered">
-            <tr ng-repeat="x in daily | filter:q | orderBy:'price'">
-                <td>
-                    <h1>company = {{x.sym}}</h1>
-                    <h2>price = {{x.price}}</h2>
-                </td>
-            </tr>
+    </div>
+    <div>
+        <table class="table" style="margin-bottom: 0px" data-ng-init="find()">
+            <thead>
+                <tr>
+                    <th>Instrument{{articles.length}}</th>
+                    <th>Quantity</th>
+                    <th>Purchase Price</th>
+                    <th>Current Price</th>
+                    <th>Total Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="y in articles">
+                    <td>{{y.title}}</td>
+                    <td>{{y.quantity}}</td>
+                    <td>{{y.content}}</td>
+                    <td><span data-ng-repeat="x in daily|filter: y.title">{{x.price}}</span></td>
+                    <td data-ng-init="a=y.quantity*y.content">{{a}}</td>
+                    <td>
+                    <input type="button" value="Remove" class="btn btn-danger" ng-click="remove(y._id)"/>
+
+                    <!--
+                        <button type="btn" class="btn btn-danger btn-sm" data-ng-click="remove()">Remove</button>
+                    -->
+                    </td>
+                </tr>
+            </tbody>
         </table>
+        <hr style="border: 3px double #487;" />
+        <h5 style="margin: 0px 0px 100px 750px"><b>Total Amount = Tk. {{totalAmount()}}</b></h5>
+    </div>
+    <input type="search" ng-model="q" placeholder="filter company" />
+    <table class="table table-bordered">
+        <tr ng-repeat="x in daily | filter:q | orderBy:'price'">
+            <td>
+                <h1>company = {{x.sym}}</h1>
+                <h2>price = {{x.price}}</h2>
+            </td>
+        </tr>
+    </table>
     </div>
 </section>

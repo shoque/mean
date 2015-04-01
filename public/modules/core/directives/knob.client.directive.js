@@ -96,7 +96,7 @@ angular.module('core').directive('timer', ['$timeout', function($timeout) {
 
             var jqueryElm3 = $(".ccounter");
             console.log("elemnis is 123 ");
-            $(jqueryElm3).ccountdown(2015, 2, 25, '18:00');
+            $(jqueryElm3).ccountdown(2015, 5, 25, '18:00');
 
             var jqueryElm3 = $(".ccnter");
             console.log("elemnis is 123 ");

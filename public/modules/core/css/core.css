@@ -41,3 +41,108 @@ body {
 	display: inline-block;
 	float: left;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.container{
+	margin-top: 55px;
+	width: 1220px;
+	height: 500px;
+	background-color: #2E2E2E;
+}
+
+
+.table {
+  margin:1em auto;
+  margin-left: 50px;
+  height:400px;
+  width:400px;
+  border-color: red;
+  background-color: #99CCFF
+;
+}
+
+.table, table td{
+	border-color: blue;
+	border-width:1px;
+}
+
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+   border: 0.5px solid #000000;
+}
+
+
+td {
+  height:30px;
+  width:30px;
+  border:1px solid;
+  text-align:center;
+}
+td:first-child {
+  border-left:solid;
+}
+td:nth-child(3n) {
+  border-right:solid ;
+}
+tr:first-child {
+  border-top:solid;
+}
+tr:nth-child(3n) td {
+  border-bottom:solid ;
+}
+
+
+
+
+
+
+#game {
+    width: 100px;
+    height: 100px;
+
+    margin-top: 20px;
+    margin-bottom: 100px;
+    margin-left: 30px;
+
+    position: absolute;
+    display: block;
+    background-color: white;
+}
+
+#grid {
+    width: 378px;
+    height: 395px;
+
+    margin-left: 20px;
+    margin-top: 50px;
+
+    border: 3px solid #000000;
+}
+
+.cell input {
+    display: inline-block;
+    float: left;
+
+
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+
+    text-align: center;
+    font-size: 30px;
+}

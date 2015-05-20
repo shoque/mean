@@ -1,114 +1,94 @@
-
+<section data-ng-controller="SudokuController">
 
 <div class = 'container' style = 'margin-Top: 100px'>
 
-<div style = 'margin-top: 20px'>
-    
-</div>
-
+<h1>  {{genereateTableEmptyCells()[7]}}</h1>
 <table class="table">
      <tbody>
+  <tr>
+        <td class="cell" style = 'padding: 0px' ng-repeat="emptyCell in genereateTableEmptyCells()" ><input  class = 'input' type="text" maxlength = '1'></td>
+        
+      </tr>
+        <tr>
+        <td class="cell" style = 'padding: 0px' ng-repeat="emptyCell in genereateTableEmptyCells()" ><input  class = 'input' type="text" maxlength = '1'></td>
+        
+      </tr>
+         <tr>
+        <td class="cell" style = 'padding: 0px' ng-repeat="emptyCell in genereateTableEmptyCells()" ><input class = 'input' type="text" maxlength = '1'></td>
+        
+      </tr>
+
+   
       <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
       </tr>
       <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
       </tr>
       <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
       </tr>
       <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
       </tr>
       <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
       </tr>
       <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-      </tr>
-      <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-      </tr>
-      <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-      </tr>
-      <tr>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
-        <td class="cell"></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
+        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
       </tr>
     </tbody>
   </table>
     
 
 </div>
+
+</section>

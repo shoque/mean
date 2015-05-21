@@ -4,27 +4,42 @@
 angular.module('core').controller('SudokuController', ['$scope',
     function($scope) {
 
-  
 
-        $scope.genereateTableEmptyCells = function() {
-            
-          var emptyCells = [];
+
+
+        $scope.generateTableRows = function() {
+
+            var rows = [];
 
             for (var i = 0; i < 9; i++) {
-                emptyCells.push(i);
+
+                rows.push(i);
             }
-            console.log("length : " +emptyCells.length);
-            return emptyCells;
+
+            //  console.log("length : " + rows);
+            return rows;
+
+
+        }
+
+
+        $scope.generateTableColumns = function() {
+
+            var columns = [];
+
+            for (var i = 0; i < 9; i++) {
+
+                columns.push(i);
+            }
+
+            console.log("length : " + columns);
+            return columns;
+
+
         }
 
 
 
-
-
-
-
-
-        // var exports = module.exports = {};
 
 
         var range = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -165,9 +180,7 @@ angular.module('core').controller('SudokuController', ['$scope',
 
 
 
-        fillFirstBlock();
-        fillSecondBlock();
-        fillThirdBlock();
+
 
 
 
@@ -256,9 +269,9 @@ angular.module('core').controller('SudokuController', ['$scope',
 
 
         function checkValue(board, column, row, value) {
-            if (this.checkRow(board, row, value) &&
-                this.checkColumn(board, column, value) &&
-                this.check3x3Square(board, column, row, value)) {
+            if (checkRow(board, row, value) &&
+                checkColumn(board, column, value) &&
+                check3x3Square(board, column, row, value)) {
                 return true;
             } else {
                 return false;
@@ -284,7 +297,7 @@ angular.module('core').controller('SudokuController', ['$scope',
                     // If a valid value is found, mark found true,
                     // set the position to the value, and move to the
                     // next position
-                    if (this.checkValue(board, column, row, value)) {
+                    if (checkValue(board, column, row, value)) {
                         found = true;
                         board[row][column] = value;
                         i++;
@@ -316,9 +329,9 @@ angular.module('core').controller('SudokuController', ['$scope',
 
         $scope.solveSudoku = function(board) {
 
-            var emptyPositions = this.saveEmptyPositions(board);
+            var emptyPositions = saveEmptyPositions(board);
 
-            return this.solvePuzzle(board, emptyPositions);
+            return solvePuzzle(board, emptyPositions);
 
             //process.stdout.write('board array now looks: \n\n\n');
 
@@ -379,11 +392,59 @@ angular.module('core').controller('SudokuController', ['$scope',
 
                     //process.stdout.write(board[a][b] + ', ');
 
+                    console.log(board[a][b] + ', ');
+
                 }
                 //process.stdout.write('\n');
             }
 
+            return board;
+
         }
+
+
+
+        var str = "";
+
+
+        for (var a = 0; a < 9; a++) {
+            for (var b = 0; b < 9; b++) {
+
+                //process.stdout.write(board[a][b] + ', ');
+                str = str + board[a][b] + ', ';
+                //console.log(board[a][b] + ', ');
+
+            }
+            str = str + '\n';
+        }
+
+
+        console.log("board array : \n" + str);
+
+
+
+
+
+
+
+
+        fillFirstBlock();
+        fillSecondBlock();
+        fillThirdBlock();
+
+
+        //saveEmptyPositions(board);
+        solvePuzzle(board, saveEmptyPositions(board));
+        //makeRandomIndexEmpty(board);
+        /*  checkRow(board, row, value);
+          checkColumn(board, column, value);
+          check3x3Square(board, column, row, value);
+          checkValue(board, column, row, value);
+          
+          solveSudoku(board);
+
+
+          makeRandomIndexEmpty(board);*/
 
 
 
@@ -397,11 +458,6 @@ angular.module('core').controller('SudokuController', ['$scope',
 
 
     }
-
-
-
-
-
 
 
 ]);

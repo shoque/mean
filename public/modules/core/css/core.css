@@ -126,3 +126,14 @@ tr:nth-child(3n) td {
   	width:44px;
 }
 
+.myclass {
+  /*color: red;*/
+  font-size: 22px;
+
+}
+
+
+h1 {
+    
+    color: red;
+}

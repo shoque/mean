@@ -1,94 +1,12 @@
 <section data-ng-controller="SudokuController">
-
-<div class = 'container' style = 'margin-Top: 100px'>
-
-<h1>  {{genereateTableEmptyCells()[7]}}</h1>
-<table class="table">
-     <tbody>
-  <tr>
-        <td class="cell" style = 'padding: 0px' ng-repeat="emptyCell in genereateTableEmptyCells()" ><input  class = 'input' type="text" maxlength = '1'></td>
-        
-      </tr>
-        <tr>
-        <td class="cell" style = 'padding: 0px' ng-repeat="emptyCell in genereateTableEmptyCells()" ><input  class = 'input' type="text" maxlength = '1'></td>
-        
-      </tr>
-         <tr>
-        <td class="cell" style = 'padding: 0px' ng-repeat="emptyCell in genereateTableEmptyCells()" ><input class = 'input' type="text" maxlength = '1'></td>
-        
-      </tr>
-
-   
-      <tr>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-      </tr>
-      <tr>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-      </tr>
-      <tr>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-      </tr>
-      <tr>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-      </tr>
-      <tr>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-      </tr>
-      <tr>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-        <td class="cell" style = 'padding: 0px'><input class = 'input' type="text" maxlength = '1'></td>
-      </tr>
-    </tbody>
-  </table>
-    
-
-</div>
-
+    <div class='container' style='margin-Top: 100px'>
+        <table class="table">
+            <tbody>
+                <tr ng-repeat="rows in generateTableRows()">
+                    <td class="cell" ng-class="{'myclass' : generateTableRows()}" style='padding: 0px text-align: center' ng-repeat="columns in generateTableColumns()">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </section>

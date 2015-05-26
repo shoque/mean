@@ -4,6 +4,7 @@
             <tbody>
                 <tr ng-repeat="rows in generateTableRows()">
                     <td class="cell" ng-class="{'myclass' : generateTableRows()}" style='padding: 0px text-align: center' ng-repeat="columns in generateTableColumns()">
+                    <div ng-repeat="x in returnAllBoardElements() track by $index"></div>
                     </td>
                 </tr>
             </tbody>

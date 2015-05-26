@@ -32,7 +32,7 @@ angular.module('core').controller('SudokuController', ['$scope',
                 columns.push(i);
             }
 
-            console.log("length : " + columns);
+            //console.log("length : " + columns);
             return columns;
 
 
@@ -315,8 +315,11 @@ angular.module('core').controller('SudokuController', ['$scope',
                 }
             }
 
+            console.log('Board with solution looks: ');
+
             // A solution was found! Log it
             board.forEach(function(row) {
+
                 console.log(row.join());
             });
 
@@ -361,7 +364,7 @@ angular.module('core').controller('SudokuController', ['$scope',
 
 
 
-        $scope.makeRandomIndexEmpty = function(board) {
+        function makeRandomIndexEmpty(board) {
 
             var recordPreviousIndicesArray = [];
 
@@ -387,16 +390,24 @@ angular.module('core').controller('SudokuController', ['$scope',
 
 
 
+            var str = "";
+
             for (var a = 0; a < 9; a++) {
                 for (var b = 0; b < 9; b++) {
 
                     //process.stdout.write(board[a][b] + ', ');
 
-                    console.log(board[a][b] + ', ');
+
+                    str = str + board[a][b] + ', ';
+                    //console.log(board[a][b] + ', ');
 
                 }
+
+                str = str + '\n';
                 //process.stdout.write('\n');
             }
+
+            console.log("board array after making random index empty : \n" + str);
 
             return board;
 
@@ -404,22 +415,7 @@ angular.module('core').controller('SudokuController', ['$scope',
 
 
 
-        var str = "";
 
-
-        for (var a = 0; a < 9; a++) {
-            for (var b = 0; b < 9; b++) {
-
-                //process.stdout.write(board[a][b] + ', ');
-                str = str + board[a][b] + ', ';
-                //console.log(board[a][b] + ', ');
-
-            }
-            str = str + '\n';
-        }
-
-
-        console.log("board array : \n" + str);
 
 
 
@@ -435,7 +431,7 @@ angular.module('core').controller('SudokuController', ['$scope',
 
         //saveEmptyPositions(board);
         solvePuzzle(board, saveEmptyPositions(board));
-        //makeRandomIndexEmpty(board);
+        makeRandomIndexEmpty(board);
         /*  checkRow(board, row, value);
           checkColumn(board, column, value);
           check3x3Square(board, column, row, value);
@@ -450,9 +446,78 @@ angular.module('core').controller('SudokuController', ['$scope',
 
 
 
-        //process.stdout.write('After generating the puzzle, board array looks like this: \n\n\n');
+        var strBoard = "";
 
-        //exports.makeRandomIndexEmpty(board);
+
+        for (var a = 0; a < 9; a++) {
+            for (var b = 0; b < 9; b++) {
+
+                //process.stdout.write(board[a][b] + ', ');
+                strBoard = strBoard + board[a][b] + ', ';
+                //console.log(board[a][b] + ', ');
+
+            }
+            strBoard = strBoard + '\n';
+        }
+
+
+        console.log("board array : \n" + strBoard);
+
+
+
+
+
+        $scope.returnAllBoardElements = function () {
+
+
+            var singleDarray = [];
+
+
+            for (var i = 0; i < 9; i++) {
+                for (var j = 0; j < 9; j++) {
+
+                    singleDarray.push(board[i][j]);
+
+                }
+            }
+
+            return singleDarray;
+
+
+            /*var str = "";
+
+            for (var i = 0; i < singleDarray.length; i++) {
+
+
+
+                str = str + singleDarray[i] + ', ';
+
+                if (str.length % 9 == 0){
+
+                    str = str + '\n';
+                }
+
+
+                
+            }
+
+
+            console.log("singleDarray array looks : \n" + str);*/
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

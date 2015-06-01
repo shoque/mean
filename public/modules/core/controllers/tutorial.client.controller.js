@@ -30,5 +30,4 @@ angular.module('core').controller('TutorialController', ['$http', '$scope', 'Aut
         };
 
 
-    }
-]);
+    

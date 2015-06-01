@@ -58,6 +58,7 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/jquery/dist/jquery.js',
+				'public/lib/jquery/dist/pgwslider.js',
 				'public/lib/jquery-ui/jquery-ui.js',
 				'public/lib/jquery-knob/js/jquery.knob.js',
 				'public/lib/circular-countdown/js/jquery.ccountdown.js',
@@ -69,8 +70,9 @@ module.exports = {
 			]
 		},
 		css: [
-			'public/modules/**/css/*.css'
+			'public/modules/**/css/*.css',
 			//'public/modules/**/js/**/css/*.css'
+			'public/modules/core/css/pgwslider.css'
 		],
 		js: [
 			'public/config.js',

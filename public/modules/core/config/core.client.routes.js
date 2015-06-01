@@ -26,6 +26,9 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         }).state('sudoku', {
             url: '/sudoku',
             templateUrl: 'modules/core/views/sudoku.client.view.html'
+        }).state('carousel', {
+            url: '/carousel',
+            templateUrl: 'modules/core/views/carousel.client.view.html'
         });
 
 

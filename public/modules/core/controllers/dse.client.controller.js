@@ -3,7 +3,7 @@
 
 angular.module('core').controller('DseController', ['$http', '$scope', 'Authentication',
     function($http, $scope, Authentication) {
-        $http.get('/getdseData').success(function(response) {
+        $http.get('/getdseDaily').success(function(response) {
 
             $scope.names = response;
             //console.

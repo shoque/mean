@@ -3,25 +3,53 @@
 /**
  * Module dependencies.
  */
-exports.index = function(req, res) {
+exports.index = function (req, res) {
     res.render('index', {
         user: req.user || null,
         request: req
     });
 };
-exports.jquerytest = function(req, res) {
+exports.jquerytest = function (req, res) {
     res.render('jquerytest', {
         user: req.user || null,
         request: req
     });
 };
 
-exports.dseprocess = function(req, res) {
+
+exports.dsedaily = function (req, res) {
+    var request = require('request');
+    var url = "http://www.dsebd.org/datafile/quotes.txt";
+
+    request.get(url, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var csv = body;
+            var str = csv.split("\n");
+            var stockinfo = [];
+            console.log("dse : " + str[4]);
+            for (var i = 4; i < str.length - 1; i++) {
+                var split = str[i].split("\t");
+                console.log("company :" + split[0]);
+                console.log("price : " + split[1]);
+                stockinfo.push({
+                    company: split[0],
+                    price: split[1]
+                  
+                });
+                
+            }
+            res.json(stockinfo);
+        }
+    });
+
+};
+
+exports.dseprocess = function (req, res) {
     var request = require('request');
     var url = "http://www.dsebd.org/mst.txt";
 
 
-    request.get(url, function(error, response, body) {
+    request.get(url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             var csv = body;
             // console.log(csv);
@@ -39,15 +67,16 @@ exports.dseprocess = function(req, res) {
 
                 var split = str[i].match(/\S+/g);
                 for (var k = 0; k < split.length; k++) {
-                       //console.log(split[k]);
+                    //console.log(split[k]);
 
- 
-                   
+
+
                 }
                 var check = true;
                 if (split[5] < 0) {
                     check = false;
-                } else {
+                }
+                else {
                     check = true;
                 }
                 stockinfo.push({
@@ -66,28 +95,29 @@ exports.dseprocess = function(req, res) {
                 //console.log(stockinfo);
 
             }
-//random number between -10% to 10% 
-      
-       console.log(stockinfo.length);
-       for(var i = 0 ; i<stockinfo.length;i++){
-         var rand = parseFloat(((Math.random()-0.5)/10)) ;
-           console.log("rand = " +rand);
-            var temp =  parseFloat(stockinfo[i].close) ;
-            console.log("temp = "+temp);
-            stockinfo[i].close = temp + (temp * rand);
-             console.log("close = "+ stockinfo[i].close);
-            var change = temp - stockinfo[i].close;
-            stockinfo[i].change = change;
+            //random number between -10% to 10% 
 
-            console.log("change = " +change );
-            var check = true;
-            if (change < 0) {
+            // console.log(stockinfo.length);
+            for (var i = 0; i < stockinfo.length; i++) {
+                var rand = parseFloat(((Math.random() - 0.5) / 10));
+                //console.log("rand = " +rand);
+                var temp = parseFloat(stockinfo[i].close);
+                // console.log("temp = "+temp);
+                stockinfo[i].close = temp + (temp * rand);
+                //  console.log("close = "+ stockinfo[i].close);
+                var change = temp - stockinfo[i].close;
+                stockinfo[i].change = change;
+
+                //  console.log("change = " +change );
+                var check = true;
+                if (change < 0) {
                     check = false;
-                } else {
+                }
+                else {
                     check = true;
                 }
 
-       }
+            }
             //console.log(stockinfo);
             res.json(stockinfo);
 

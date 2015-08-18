@@ -27,7 +27,14 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		}).state('gridinfo', {
 			url: '/gridinfo',
 			templateUrl: 'modules/core/views/grid.client.view.html'
+		}).state('webrtc', {
+			url: '/webrtc',
+			templateUrl: 'modules/core/views/webrtc.client.view.html'
+		}).state('animate', {
+			url: '/animate',
+			templateUrl: 'modules/core/views/animate.client.view.html'
 		});
+;
 
 
 

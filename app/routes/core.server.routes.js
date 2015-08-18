@@ -6,6 +6,7 @@ module.exports = function(app) {
 	app.route('/').get(core.index);
 	app.route('/jquerytest').get(core.jquerytest);
 	app.route('/getdseData').get(core.dseprocess );
+    app.route('/getdseDaily').get(core.dsedaily);
 
 
 };
